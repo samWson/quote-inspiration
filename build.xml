@@ -2,7 +2,6 @@
 
   <target name="clean">
     <delete dir="build"/>
-    <delete dir="class"/>
   </target>
 
   <target name="compile">
