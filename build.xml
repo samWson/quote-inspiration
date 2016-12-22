@@ -1,13 +1,16 @@
 <project name="Quotes" basedir="." default="main">
 
+  <property name="src.dir" value="src"/>
+  <property name="build.dir" value="build"/>
+  <property name="classes.dir" vaule="${build.dir}/classes"/>
+
   <target name="clean">
-    <delete dir="build"/>
+    <delete dir="${build.dir}"/>
   </target>
 
   <target name="compile">
-    <mkdir dir="build"/>
-    <mkdir dir="class"/>
-    <javac srcdir="src/quotes" destdir="class"/>
+    <mkdir dir="${classes.dir}"/>
+    <javac srcdir="${src.dir}" destdir="${classes.dir}"/>
   </target>
 
   <target name="run">
