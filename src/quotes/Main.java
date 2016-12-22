@@ -7,6 +7,7 @@ package quotes;
 
 import java.util.List;
 import java.util.ArrayList;
+import java.util.Random;
 
 /**
    Selects a quote at random from a list of quotes, and prints it to the
@@ -29,6 +30,9 @@ public class Main {
 
 	quotes.add(q1);
 	quotes.add(q2);
+
+	// Select an index at random and print the Quote at the index.
+	System.out.println(quotes.get(new Random().nextInt(quotes.size())));
 
 	for (Quote quote: quotes) {
 	    System.out.println(quote);
