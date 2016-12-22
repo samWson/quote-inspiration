@@ -20,7 +20,15 @@ public class Main {
     */
     public static void main(String[] args) {
 
+	Quote q1 = new Quote("Programming is the art of making a computer do what you want it to", "CPP, Programming concepts 1");
+
+	Quote q2 = new Quote("What would you do if someone was firing rockets at your house?", "Myself", "2015");
+
+	// Stores all the Quote objects.
 	List<Quote> quotes = new ArrayList<>();
+
+	quotes.add(q1);
+	quotes.add(q2);
 	System.out.println("Printing quote...");
     }
 	
