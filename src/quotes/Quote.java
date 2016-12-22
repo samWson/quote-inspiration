@@ -11,9 +11,13 @@ public class Quote {
     private String author;
     private String date;
 
-    public Quote(String text, String author, String date) {
+    public Quote(String text, String author) {
 	this.text = text;
 	this.author = author;
+    }
+
+    public Quote(String text, String author, String date) {
+	super(text, author);
 	this.date = date;
     }
 
