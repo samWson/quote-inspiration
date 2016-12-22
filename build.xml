@@ -2,7 +2,8 @@
 
   <property name="src.dir" value="src"/>
   <property name="build.dir" value="build"/>
-  <property name="classes.dir" vaule="${build.dir}/classes"/>
+  <property name="classes.dir" value="${build.dir}/classes"/>
+  <property name="main.class" value="quotes.Main"/>
 
   <target name="clean">
     <delete dir="${build.dir}"/>
@@ -13,8 +14,8 @@
     <javac srcdir="${src.dir}" destdir="${classes.dir}"/>
   </target>
 
-  <target name="run">
-    <java />
+  <target name="run" depends="compile">
+    <java classpath="${classes.dir}" classname="${main.class}"/>
   </target>
 
 </project>
