@@ -20,6 +20,6 @@
 
   <target name="clean-compile" depends="clean, compile"/>
 
-  
+  <target name="main" depends="clean, run"/>
 
 </project>
