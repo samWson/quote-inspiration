@@ -17,7 +17,7 @@ public class Quote {
     }
 
     public Quote(String text, String author, String date) {
-	super(text, author);
+	this(text, author);
 	this.date = date;
     }
 
