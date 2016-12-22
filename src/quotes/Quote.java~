@@ -1,6 +1,0 @@
-/**
-  Quote.java
-  This class defines Quote objects, which are made up of the quote
-  text, the author or quoter, and the approximate date of the quote.
-*/
-
