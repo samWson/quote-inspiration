@@ -29,7 +29,11 @@ public class Main {
 
 	quotes.add(q1);
 	quotes.add(q2);
-	System.out.println("Printing quote...");
+
+	for (Quote quote: quotes) {
+	    System.out.println(quote);
+	}
+
     }
 	
        
