@@ -18,4 +18,8 @@
     <java classpath="${classes.dir}" classname="${main.class}"/>
   </target>
 
+  <target name="clean-compile" depends="clean, compile"/>
+
+  
+
 </project>
