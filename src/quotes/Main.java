@@ -34,10 +34,6 @@ public class Main {
 	// Select an index at random and print the Quote at the index.
 	System.out.println(quotes.get(new Random().nextInt(quotes.size())));
 
-	for (Quote quote: quotes) {
-	    System.out.println(quote);
-	}
-
     }
 	
        
