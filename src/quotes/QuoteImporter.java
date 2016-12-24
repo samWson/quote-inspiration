@@ -19,7 +19,7 @@ public class QuoteImporter {
     /**
        A QuoteImporter object is used for importing Quote objects from
        a text file.
-       @param the file path to import Quotes from
+       @param filePath the file path to import Quotes from
     */
     public QuoteImporter(String filePath) {
 	this.file = new File(filePath);
@@ -31,10 +31,6 @@ public class QuoteImporter {
     */
     public List<Quote> importQuotes() {
 	
-	// For storing and returning the Quote objects.
-	List<Quote> quotes = new ArrayList<>();
-
-
 	// Temp StringBuffer for making this method.
 	StringBuffer importedText = new StringBuffer();
 	
@@ -44,17 +40,60 @@ public class QuoteImporter {
 	    String line;
 	    
 	    while ((line = reader.readLine()) != null) {
+
+		// Ignore lines starting with '#' i.e. commented
+		// lines.
+		if (line.startsWith("#")) {
+		    continue;
+		}
+
 		importedText.append(line).append("\n");
+
 	    }
+
 	} catch (IOException ioe) {
 	    System.err.printf("Error importing from file: %s%n", ioe.toString());
 	}
 
-	// Printing out the imported text.
-	System.out.println(importedText.toString());
-
+	// Make the Quote objects from the Strings.
+	List<Quote> quotes = makeQuotes(importedText.toString());
+	
 	// Returning a List that has had nothing done to it. Still
 	// building this method.
 	return quotes;
     }
+
+    /**
+       Creates Quote objects from the parsed lines of a String object.
+       @param text a String object to be parsed 
+       @return the list of Quote objects
+    */
+    private List<Quote> makeQuotes(String text) {
+
+	// Split into individual Strings delimited by "\n".
+	String[] lines = text.split("\n");
+
+	for (String line: lines) {
+	    System.out.println(line);
+	}
+
+
+	
+
+	return new ArrayList<Quote>();
+    }
+    /*
+    /**
+       Removes any lines from a string object that start with a '#'
+       character, and returns the remaining String.
+    
+    private String stripComments(String text) {
+
+	char[] commentedText = text;
+
+	for ()
+
+     
+    }
+    */
 }
