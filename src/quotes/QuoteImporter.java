@@ -70,15 +70,39 @@ public class QuoteImporter {
     */
     private List<Quote> makeQuotes(String text) {
 
+	// For returning the new Quote objects.
+	List<Quote> quotes = new ArrayList<>();
+
 	// Split into individual Strings delimited by "\n".
 	String[] lines = text.split("\n");
 
+	// For Lists made up of the lines that will make Quote objects.
+	List<ArrayList<String>> quoteElements = new ArrayList<>();
+
+	/* This list will hold the individual lines of the Quote
+	   objects, and will be added to an index of quoteElements
+	   everytime a blank line is found.
+	*/
+	List<String> singleQuote = new ArrayList<>();
+	
 	for (String line: lines) {
-	    System.out.println(line);
+
+	    singleQuote.add(line);
+
+	    /* If a blank line is added, that is the end of the
+	       Quote. Add it to the quoteElements List.
+	    */
+	    if (line.equals("")) {
+
+		quoteElements.add(new ArrayList<String>(singleQuote));
+
+		// Clear the List, making it ready for a new series of
+		// Quote elements.
+		singleQuote.clear();
+	    }
 	}
 
-
-	
+		
 
 	return new ArrayList<Quote>();
     }
