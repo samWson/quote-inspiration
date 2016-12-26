@@ -102,6 +102,27 @@ public class QuoteImporter {
 	    }
 	}
 
+	/* Make the Quote objects from the individual Lists in
+	   quoteElements. A subList may have up to 4 elements. We are
+	   only interested in using 3. The 3rd or 4th elements may be
+	   empty Strings, in which case they are discarded.
+	*/
+	for (ArrayList<String> subList: quoteElements) {
+
+	    // The 1st element is the quote text.
+	    final String subList[0];
+
+	    // The 2nd element is the quote author.
+	    final String subList[1];
+
+	    // The 3rd element is the quote date.
+	    final String subList[2];
+	    
+	    /* If the 3rd element is an empty string (""), the quote
+	       does not have a date. Use the 2 argument constructor.
+	    */
+	    if ()
+	}
 		
 
 	return new ArrayList<Quote>();
