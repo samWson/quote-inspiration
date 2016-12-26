@@ -131,18 +131,4 @@ public class QuoteImporter {
 		
 	return quotes;
     }
-    /*
-    /**
-       Removes any lines from a string object that start with a '#'
-       character, and returns the remaining String.
-    
-    private String stripComments(String text) {
-
-	char[] commentedText = text;
-
-	for ()
-
-     
-    }
-    */
 }
