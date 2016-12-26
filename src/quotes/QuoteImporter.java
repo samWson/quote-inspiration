@@ -110,22 +110,26 @@ public class QuoteImporter {
 	for (ArrayList<String> subList: quoteElements) {
 
 	    // The 1st element is the quote text.
-	    final String subList[0];
+	    final String quoteText = subList.get(0);
 
 	    // The 2nd element is the quote author.
-	    final String subList[1];
+	    final String quoteAuthor = subList.get(1);
 
 	    // The 3rd element is the quote date.
-	    final String subList[2];
+	    final String quoteDate = subList.get(2);
 	    
-	    /* If the 3rd element is an empty string (""), the quote
-	       does not have a date. Use the 2 argument constructor.
-	    */
-	    if ()
+	    if (quoteDate.equals("")) {
+		/* If the 3rd element is an empty string (""), the
+		   quote does not have a date. Use the 2 argument
+		   constructor. 
+		*/	    
+		quotes.add(new Quote(quoteText, quoteAuthor));
+	    } else {
+		quotes.add(new Quote(quoteText, quoteAuthor, quoteDate));
+	    }
 	}
 		
-
-	return new ArrayList<Quote>();
+	return quotes;
     }
     /*
     /**
