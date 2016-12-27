@@ -23,6 +23,12 @@ public class Quote {
 
     @Override
     public String toString() {
-	return text + ", " + author + ", " + date + ".";
+	return new StringBuilder().append(text)
+	    .append("\n")
+	    .append(author)
+	    .append("\n")
+	    .append(date)
+	    .append("\n")
+	    .toString();
     }
 }
