@@ -15,9 +15,6 @@ import java.util.Random;
 */
 public class Main {
 
-    
-    
-
     /**
        The start of the program. Selects a quote from a list, prints
        it to the console, then exits.
@@ -31,24 +28,8 @@ public class Main {
 	QuoteImporter importer = new QuoteImporter(quotesFile);
 	List<Quote> quotes = importer.importQuotes();
 
-	// For now just print out the contents of quotes. Later print
-	// out a random quote from the List.
-	for (Quote quote: quotes) {
-	    System.out.println(quote);
-	}	
-	//	Quote q1 = new Quote("Programming is the art of making a computer do what you want it to", "CPP, Programming concepts 1");
-
-	//	Quote q2 = new Quote("What would you do if someone was firing rockets at your house?", "Myself", "2015");
-
-
-
-	//	quotes.add(q1);
-	//	quotes.add(q2);
-
 	// Select an index at random and print the Quote at the index.
-	//System.out.println(quotes.get(new Random().nextInt(quotes.size())));
+	System.out.println(quotes.get(new Random().nextInt(quotes.size())));
 
     }
-	
-    
 }
