@@ -23,13 +23,18 @@ public class Main {
 
       	// File for importing/exporting Quotes.
 	final String quotesFile = "/home/samuel/Programming/quote-inspiration/quote-file.txt";
-
+	
 	// Import the Quotes from a file.
 	QuoteImporter importer = new QuoteImporter(quotesFile);
 	List<Quote> quotes = importer.importQuotes();
 
-	// Select an index at random and print the Quote at the index.
-	System.out.println(quotes.get(new Random().nextInt(quotes.size())));
+	if (args.length == 0) {
+	    // If there are no command line arguments, print a random
+	    // quote and exit the program.
+	    System.out.println(quotes.get(new Random().nextInt(quotes.size())));
+	    System.exit(0);
+	}
+
 
     }
 }
