@@ -1,9 +1,10 @@
-<project name="Quotes" basedir="." default="main">
+<project name="quotes" basedir="." default="main">
 
   <property name="src.dir" value="src"/>
   <property name="build.dir" value="build"/>
   <property name="classes.dir" value="${build.dir}/classes"/>
   <property name="main.class" value="quotes.Main"/>
+  <property name="jar.dir" value="${build.dir}/jar"/>
 
   <target name="clean">
     <delete dir="${build.dir}"/>
@@ -18,6 +19,14 @@
     <java classpath="${classes.dir}" classname="${main.class}"/>
   </target>
 
+  <target name="jar" depends="compile">
+    <jar destfile="${jar.dir}/${ant.project.name}.jar" basedir="${classes.dir}">
+      <manifest>
+	<attribute name="Main-class" value="${main.class}"/>
+      </manifest>
+    </jar>
+  </target>
+  
   <target name="clean-compile" depends="clean, compile"/>
 
   <target name="main" depends="clean, run"/>
