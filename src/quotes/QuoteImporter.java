@@ -4,7 +4,9 @@ import java.util.List;
 import java.util.ArrayList;
 import java.io.File;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.IOException;
 
 /**
@@ -130,5 +132,79 @@ public class QuoteImporter {
 	}
 		
 	return quotes;
+    }
+
+    /**
+       Writes all the quote fields to the same external text file that
+    the Quote objects are created from. The file is overwritten.
+    @param quoteList the List of Quote objects to be exported
+    @param file the file to export to
+    */
+    public void exportQuotes(List<Quote> quoteList, String file) {
+
+	// Change the Quote objects into a char[] for export.
+	char[] text = (createExportString(quoteList)).toCharArray();
+
+	try (BufferedWriter writer = new BufferedWriter(new FileWriter(file))) {
+
+	    // Write each character to the export file.
+	    for(char ch: text) {
+
+		writer.write((int) ch);
+	    }
+	    
+	} catch (IOException ioe) {
+	    System.err.printf("Error writing to export file: %s%n", ioe);
+	}
+    }
+
+    /** Creates a single String from a List of Quote objects, made up
+    of the Quote fields.
+    @param quoteList the List of Quote objects
+    @return the String made from Quote objects
+    */
+    private String createExportString(List<Quote> quoteList) {
+
+	// Commented help text that goes at the top of the String.
+	final String HELP_TEXT = new StringBuilder()
+	    .append("# Lines starting with a '#' character are ignored.\n")
+	    .append("# This file contains quotes that can be imported into the quotes program.\n")
+	    .append("# All the Quote objects can be exported back into this file to save all new'n")
+	    .append("# Quote objects created by the program.\n")
+	    .append("# Each Quote object is made up of the Quote text, the author, and the quote\n")
+	    .append("# date, each on a separate line. Different quotes are separated by one\n")
+	    .append("# blank line. The date line is optional. e.g.\n")
+	    .append("# This is the first quote text\n")
+	    .append("# This is the author\n")
+	    .append("# This is the date\n")
+	    .append("#\n")
+	    .append("# This is the second quote text\n")
+	    .append("# This is the author\n")
+	    .append("# This is the date\n")
+	    .append("#\n")
+	    .append("# And so on.\n")
+	    .toString();
+
+	// Start the export String with the help text.
+	StringBuilder exportString = new StringBuilder(HELP_TEXT);
+
+	// Append the Strings of each Quote field to the export String.
+	for (Quote quote: quoteList) {
+
+	    exportString.append(quote.getText())
+		.append("\n")
+		.append(quote.getAuthor())
+		.append("\n");
+
+	    if (quote.getDate() != null) {
+		exportString.append(quote.getDate())
+		    .append("\n");
+	    }
+
+	    // Append a single blank line to separate the Quotes.
+	    exportString.append("\n");
+	}
+
+	return exportString.toString();
     }
 }
