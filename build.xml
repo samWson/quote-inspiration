@@ -27,7 +27,7 @@
     </jar>
   </target>
   
-  <target name="clean-compile" depends="clean, compile"/>
+  <target name="clean-build" depends="clean, jar"/>
 
   <target name="main" depends="clean, run"/>
 
