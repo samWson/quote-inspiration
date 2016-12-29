@@ -2,6 +2,7 @@ package quotes;
 
 import java.util.List;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
@@ -78,6 +79,12 @@ public class QuoteImporter {
 	// Split into individual Strings delimited by "\n".
 	String[] lines = text.split("\n");
 
+	/* Add an empty String at the end of lines, so the last group
+	   of Quote elements get added to quoteElements in the for
+	   each loop below.*/
+	List<String> listOfLines = new ArrayList<>(Arrays.asList(lines));
+	listOfLines.add("");
+
 	// For Lists made up of the lines that will make Quote objects.
 	List<ArrayList<String>> quoteElements = new ArrayList<>();
 
@@ -87,7 +94,7 @@ public class QuoteImporter {
 	*/
 	List<String> singleQuote = new ArrayList<>();
 	
-	for (String line: lines) {
+	for (String line: listOfLines) {
 
 	    singleQuote.add(line);
 
