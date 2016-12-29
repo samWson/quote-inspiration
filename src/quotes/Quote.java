@@ -31,4 +31,28 @@ public class Quote {
 	    .append("\n")
 	    .toString();
     }
+
+    /**
+       Returns the value of the Quotes text.
+       @return the Quote text
+    */
+    public String getText() {
+	return this.text;
+    }
+
+    /**
+       Returns the value of the Quotes author.
+       @return the Quote author
+    */
+    public String getAuthor() {
+	return this.author;
+    }
+
+    /**
+       Returns the value of the Quotes date.
+       @return the Quote date
+    */
+    public String getDate() {
+	return this.date;
+    }
 }
