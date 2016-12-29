@@ -169,7 +169,7 @@ public class QuoteImporter {
 	final String HELP_TEXT = new StringBuilder()
 	    .append("# Lines starting with a '#' character are ignored.\n")
 	    .append("# This file contains quotes that can be imported into the quotes program.\n")
-	    .append("# All the Quote objects can be exported back into this file to save all new'n")
+	    .append("# All the Quote objects can be exported back into this file to save all new\n")
 	    .append("# Quote objects created by the program.\n")
 	    .append("# Each Quote object is made up of the Quote text, the author, and the quote\n")
 	    .append("# date, each on a separate line. Different quotes are separated by one\n")
