@@ -12,7 +12,5 @@ As a user I want to:
   - The author (quoter?)
   - Date of the quote
 * Display a random quote on demand.
-* Edit a quote.
-* Delete a quote.
 * Save the quotes so they persist after the program ends.
 * Display a random quote on startup.
