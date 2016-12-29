@@ -16,3 +16,6 @@ hs_err_pid*
 
 # quote import/export file
 quote-file.txt
+
+# program config file
+config.txt
