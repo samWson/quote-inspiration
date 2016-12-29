@@ -57,6 +57,11 @@ public class Main {
 	    } else {
 		quotes.add(new Quote(text, author, date));
 	    }
-	}		
+
+	    // Write to the external quote file to save the Quotes.
+	    importer.exportQuotes(quotes, quotesFile);
+	}
+
+	
     }
 }
