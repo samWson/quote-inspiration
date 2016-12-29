@@ -8,6 +8,7 @@ package quotes;
 import java.util.List;
 import java.util.ArrayList;
 import java.util.Random;
+import java.util.Scanner;
 
 /**
    Selects a quote at random from a list of quotes, and prints it to the
@@ -35,6 +36,27 @@ public class Main {
 	    System.exit(0);
 	}
 
+	// For reading console input.
+	Scanner input = new Scanner(System.in);
+	String text;
+	String author;
+	String date;
 
+	if (args[0].equals("add")) {
+	    // Add a new Quote, get the Quote details.
+	    System.out.println("Enter the quote text: ");
+	    text = input.nextLine();
+	    System.out.println("Enter the author: ");
+	    author = input.nextLine();
+	    System.out.println("Enter the date (optional): ");
+	    date = input.nextLine();
+
+	    if (date.equals("") || date == null) {
+		// If date is an empty or null String, use the 2 argument constructor.
+		quotes.add(new Quote(text, author));
+	    } else {
+		quotes.add(new Quote(text, author, date));
+	    }
+	}		
     }
 }
